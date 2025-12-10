@@ -43,5 +43,13 @@ public class Penumpang {
     public void kurangiSaldo(int ongkos) {
     this.saldo -= ongkos;
     }
+
+        public boolean isPrioritas() {
+        boolean isLansia = this.umur > 60;
+        boolean isAnak = this.umur < 10;
+        boolean isIbuHamil = this.hamil;
+        
+        return isLansia || isAnak || isIbuHamil;
+    }
     
 }
