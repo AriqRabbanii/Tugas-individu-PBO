@@ -34,4 +34,14 @@ public class Penumpang {
     public int getSaldo() {
         return saldo;
     }
+
+    public void tambahSaldo(int saldobaru) {
+    this.saldo += saldobaru;
+    System.out.println("Saldo " + nama + " berhasil ditambahkan. Saldo baru: " + this.saldo);
+    }
+    
+    public void kurangiSaldo(int ongkos) {
+    this.saldo -= ongkos;
+    }
+    
 }
