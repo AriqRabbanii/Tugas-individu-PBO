@@ -27,7 +27,7 @@ public class Bus {
         this.totalPendapatan = 0;
     }
 
-        // Getters
+    // Getters
     public ArrayList<Penumpang> getPenumpangBiasa() {
         return penumpangBiasa;
     }
@@ -56,7 +56,7 @@ public class Bus {
         return getJumlahPenumpangBiasa() + getJumlahPenumpangPrioritas() + getJumlahPenumpangBerdiri();
     }
 
-        // Method inti: Naikkan Penumpang
+    // Method inti: Naikkan Penumpang
     public boolean naikkanPenumpang(Penumpang penumpang) {
         if (getTotalPenumpang() >= MAX_KAPASITAS) {
             System.out.println("❌ GAGAL: Bus sudah penuh (Kapasitas Maksimal: " + MAX_KAPASITAS + ").");
@@ -107,7 +107,7 @@ public class Bus {
         return true;
     }
 
-        // Method inti: Turunkan Penumpang
+    // Method inti: Turunkan Penumpang
     public boolean turunkanPenumpang(String nama) {
         if (cariDanHapus(penumpangBiasa, nama) || 
             cariDanHapus(penumpangPrioritas, nama) || 
@@ -132,8 +132,8 @@ public class Bus {
         }
         return false;
     }
-
-        // Method toString()
+    
+    // Method toString()
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -157,8 +157,8 @@ public class Bus {
         
         return sb.toString();
     }
-
-        // Helper untuk memformat daftar penumpang
+    
+    // Helper untuk memformat daftar penumpang
     private String formatPenumpangList(ArrayList<Penumpang> list) {
         if (list.isEmpty()) {
             return "  <kosong>\n";
