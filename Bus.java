@@ -132,4 +132,29 @@ public class Bus {
         }
         return false;
     }
+
+        // Method toString()
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("\n=== Laporan Bus Trans Koetaradja ===\n");
+        sb.append("------------------------------------\n");
+
+        sb.append("Penumpang Biasa (Kursi ").append(getJumlahPenumpangBiasa()).append("/").append(MAX_KURSI_BIASA).append("):\n");
+        sb.append(formatPenumpangList(penumpangBiasa));
+
+        sb.append("Penumpang Prioritas (Kursi ").append(getJumlahPenumpangPrioritas()).append("/").append(MAX_KURSI_PRIORITAS).append("):\n");
+        sb.append(formatPenumpangList(penumpangPrioritas));
+        
+        sb.append("Penumpang Berdiri (").append(getJumlahPenumpangBerdiri()).append("/").append(MAX_BERDIRI).append("):\n");
+        sb.append(formatPenumpangList(penumpangBerdiri));
+
+        sb.append("\n====================================\n");
+        sb.append("Jumlah Semua Penumpang: ").append(getTotalPenumpang()).append(" orang\n");
+        sb.append("Total Pendapatan Bus: Rp ").append(totalPendapatan).append("\n");
+        sb.append("====================================\n");
+        
+        return sb.toString();
+    }
 }
