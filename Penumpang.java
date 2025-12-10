@@ -15,7 +15,7 @@ public class Penumpang {
         this.saldo = 10000; 
     }
 
-        public int getID() {
+    public int getID() {
         return id;
     }
 
@@ -34,17 +34,17 @@ public class Penumpang {
     public int getSaldo() {
         return saldo;
     }
-
+    
     public void tambahSaldo(int saldobaru) {
-    this.saldo += saldobaru;
-    System.out.println("Saldo " + nama + " berhasil ditambahkan. Saldo baru: " + this.saldo);
+        this.saldo += saldobaru;
+        System.out.println("Saldo " + nama + " berhasil ditambahkan. Saldo baru: " + this.saldo);
     }
     
     public void kurangiSaldo(int ongkos) {
-    this.saldo -= ongkos;
+        this.saldo -= ongkos;
     }
-
-        public boolean isPrioritas() {
+    
+    public boolean isPrioritas() {
         boolean isLansia = this.umur > 60;
         boolean isAnak = this.umur < 10;
         boolean isIbuHamil = this.hamil;
@@ -52,7 +52,7 @@ public class Penumpang {
         return isLansia || isAnak || isIbuHamil;
     }
 
-        public boolean cekSaldoCukup() {
+    public boolean cekSaldoCukup() {
         return this.saldo >= ONGKOS_BUS;
     }
     
@@ -60,5 +60,4 @@ public class Penumpang {
     public String toString() {
         return nama + " (Umur: " + umur + ", Prioritas: " + isPrioritas() + ", Saldo: " + saldo + ")";
     }
-    
 }
