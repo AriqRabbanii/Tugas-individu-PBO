@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class TestBus {
-      
+    
     private static Bus transKoetaradja = new Bus();
     private static Scanner scanner = new Scanner(System.in);
     private static int idCounter = 1;
@@ -14,7 +14,8 @@ public class TestBus {
         transKoetaradja.naikkanPenumpang(new Penumpang(idCounter++, "Ucup", 19, false)); 
         transKoetaradja.naikkanPenumpang(new Penumpang(idCounter++, "Memet", 25, true)); 
         System.out.println("--------------------------------------\n");
-                int pilihan;
+        
+        int pilihan;
         do {
             tampilkanMenu();
             if (scanner.hasNextInt()) {
@@ -46,8 +47,8 @@ public class TestBus {
         
         scanner.close();
     }
-
-     private static void tampilkanMenu() {
+    
+    private static void tampilkanMenu() {
         System.out.println("\n===== BUS TRANS KOETARADJA =====");
         System.out.println("MENU:");
         System.out.println("1. Naikkan Penumpang");
@@ -56,7 +57,7 @@ public class TestBus {
         System.out.println("0. Keluar");
         System.out.print("Pilihan: ");
     }
-
+    
     private static void naikkanPenumpangBaru() {
         System.out.println("\n--- Input Data Penumpang ---");
         System.out.print("Nama: ");
@@ -81,7 +82,7 @@ public class TestBus {
         
         transKoetaradja.naikkanPenumpang(newP);
     }
-
+    
     private static void turunkanPenumpang() {
         System.out.println("\n--- Turunkan Penumpang ---");
         System.out.print("Nama Penumpang yang Turun: ");
