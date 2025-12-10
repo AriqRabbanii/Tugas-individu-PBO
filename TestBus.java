@@ -81,4 +81,16 @@ public class TestBus {
         
         transKoetaradja.naikkanPenumpang(newP);
     }
+
+    private static void turunkanPenumpang() {
+        System.out.println("\n--- Turunkan Penumpang ---");
+        System.out.print("Nama Penumpang yang Turun: ");
+        String nama = scanner.nextLine();
+        
+        transKoetaradja.turunkanPenumpang(nama);
+    }
+    
+    private static void lihatPenumpang() {
+        System.out.println(transKoetaradja.toString());
+    }
 }
