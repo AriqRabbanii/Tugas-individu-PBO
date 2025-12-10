@@ -51,5 +51,14 @@ public class Penumpang {
         
         return isLansia || isAnak || isIbuHamil;
     }
+
+        public boolean cekSaldoCukup() {
+        return this.saldo >= ONGKOS_BUS;
+    }
+    
+    @Override
+    public String toString() {
+        return nama + " (Umur: " + umur + ", Prioritas: " + isPrioritas() + ", Saldo: " + saldo + ")";
+    }
     
 }
