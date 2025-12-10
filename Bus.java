@@ -26,4 +26,33 @@ public class Bus {
         this.penumpangBerdiri = new ArrayList<>();
         this.totalPendapatan = 0;
     }
+
+        // Getters
+    public ArrayList<Penumpang> getPenumpangBiasa() {
+        return penumpangBiasa;
+    }
+
+    public ArrayList<Penumpang> getPenumpangPrioritas() {
+        return penumpangPrioritas;
+    }
+
+    public ArrayList<Penumpang> getPenumpangBerdiri() {
+        return penumpangBerdiri;
+    }
+
+    public int getJumlahPenumpangBiasa() {
+        return penumpangBiasa.size();
+    }
+
+    public int getJumlahPenumpangPrioritas() {
+        return penumpangPrioritas.size();
+    }
+
+    public int getJumlahPenumpangBerdiri() {
+        return penumpangBerdiri.size();
+    }
+    
+    public int getTotalPenumpang() {
+        return getJumlahPenumpangBiasa() + getJumlahPenumpangPrioritas() + getJumlahPenumpangBerdiri();
+    }
 }
