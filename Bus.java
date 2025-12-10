@@ -106,4 +106,30 @@ public class Bus {
         
         return true;
     }
+
+        // Method inti: Turunkan Penumpang
+    public boolean turunkanPenumpang(String nama) {
+        if (cariDanHapus(penumpangBiasa, nama) || 
+            cariDanHapus(penumpangPrioritas, nama) || 
+            cariDanHapus(penumpangBerdiri, nama)) {
+            
+            System.out.println("✅ Penumpang " + nama + " Berhasil Turun!");
+            return true;
+        }
+        
+        System.out.println("❌ Penumpang " + nama + " Tidak ditemukan!");
+        return false;
+    }
+    
+    private boolean cariDanHapus(ArrayList<Penumpang> list, String nama) {
+        Iterator<Penumpang> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Penumpang p = iterator.next();
+            if (p.getNama().equalsIgnoreCase(nama)) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
 }
