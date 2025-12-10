@@ -56,4 +56,29 @@ public class TestBus {
         System.out.println("0. Keluar");
         System.out.print("Pilihan: ");
     }
+
+    private static void naikkanPenumpangBaru() {
+        System.out.println("\n--- Input Data Penumpang ---");
+        System.out.print("Nama: ");
+        String nama = scanner.nextLine();
+        
+        System.out.print("Umur: ");
+        int umur;
+        try {
+            umur = scanner.nextInt();
+            scanner.nextLine();
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Input umur tidak valid. Pembatalan penambahan penumpang.");
+            scanner.nextLine();
+            return; // Exception Handling sederhana
+        }
+        
+        System.out.print("Hamil (y/n): ");
+        String hamilStr = scanner.nextLine();
+        boolean hamil = hamilStr.equalsIgnoreCase("y");
+        
+        Penumpang newP = new Penumpang(idCounter++, nama, umur, hamil);
+        
+        transKoetaradja.naikkanPenumpang(newP);
+    }
 }
