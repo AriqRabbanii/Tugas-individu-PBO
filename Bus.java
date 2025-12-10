@@ -55,4 +55,55 @@ public class Bus {
     public int getTotalPenumpang() {
         return getJumlahPenumpangBiasa() + getJumlahPenumpangPrioritas() + getJumlahPenumpangBerdiri();
     }
+
+        // Method inti: Naikkan Penumpang
+    public boolean naikkanPenumpang(Penumpang penumpang) {
+        if (getTotalPenumpang() >= MAX_KAPASITAS) {
+            System.out.println("❌ GAGAL: Bus sudah penuh (Kapasitas Maksimal: " + MAX_KAPASITAS + ").");
+            return false;
+        }
+
+        if (!penumpang.cekSaldoCukup()) {
+            System.out.println("❌ GAGAL: Saldo " + penumpang.getNama() + " tidak mencukupi (Saldo: " + penumpang.getSaldo() + ").");
+            return false;
+        }
+        
+        boolean berhasilDuduk = false;
+
+        if (penumpang.isPrioritas()) {
+            // Aturan 2 & 4: Prioritas boleh di kursi prioritas atau biasa
+            if (getJumlahPenumpangPrioritas() < MAX_KURSI_PRIORITAS) {
+                penumpangPrioritas.add(penumpang);
+                berhasilDuduk = true;
+                System.out.println("✅ " + penumpang.getNama() + " (Prioritas) berhasil duduk di kursi PRIORITAS.");
+            } else if (getJumlahPenumpangBiasa() < MAX_KURSI_BIASA) {
+                penumpangBiasa.add(penumpang);
+                berhasilDuduk = true;
+                System.out.println("✅ " + penumpang.getNama() + " (Prioritas) berhasil duduk di kursi BIASA.");
+            }
+        } else {
+            // Aturan 3: Penumpang Biasa dilarang di kursi prioritas
+            if (getJumlahPenumpangBiasa() < MAX_KURSI_BIASA) {
+                penumpangBiasa.add(penumpang);
+                berhasilDuduk = true;
+                System.out.println("✅ " + penumpang.getNama() + " (Biasa) berhasil duduk di kursi BIASA.");
+            }
+        }
+        
+        // Aturan 7: Jika kursi penuh, berdiri
+        if (!berhasilDuduk) {
+             if (getJumlahPenumpangBerdiri() < MAX_BERDIRI) {
+                 penumpangBerdiri.add(penumpang);
+                 System.out.println("✅ " + penumpang.getNama() + " berhasil naik dan BERDIRI.");
+             } else {
+                 return false;
+             }
+        }
+        
+        // Update Saldo dan Pendapatan
+        penumpang.kurangiSaldo(ONGKOS_BUS);
+        this.totalPendapatan += ONGKOS_BUS;
+        
+        return true;
+    }
 }
