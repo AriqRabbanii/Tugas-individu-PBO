@@ -157,4 +157,20 @@ public class Bus {
         
         return sb.toString();
     }
+
+        // Helper untuk memformat daftar penumpang
+    private String formatPenumpangList(ArrayList<Penumpang> list) {
+        if (list.isEmpty()) {
+            return "  <kosong>\n";
+        }
+        StringBuilder names = new StringBuilder("  ");
+        for (int i = 0; i < list.size(); i++) {
+            names.append(list.get(i).getNama());
+            if (i < list.size() - 1) {
+                names.append(", ");
+            }
+        }
+        names.append("\n");
+        return names.toString();
+    }
 }
